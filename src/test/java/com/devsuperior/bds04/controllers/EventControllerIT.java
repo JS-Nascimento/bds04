@@ -1,12 +1,8 @@
 package com.devsuperior.bds04.controllers;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.time.LocalDate;
-
+import com.devsuperior.bds04.dto.EventDTO;
+import com.devsuperior.bds04.tests.TokenUtil;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +13,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.devsuperior.bds04.dto.EventDTO;
-import com.devsuperior.bds04.tests.TokenUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.time.LocalDate;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -57,10 +56,10 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/events")
-					.content(jsonBody)
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON));
+				mockMvc.perform(post("/api/events")
+						.content(jsonBody)
+						.contentType(MediaType.APPLICATION_JSON)
+						.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isUnauthorized());
 	}
@@ -75,11 +74,11 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/events")
-					.header("Authorization", "Bearer " + accessToken)
-					.content(jsonBody)
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON));
+				mockMvc.perform(post("/api/events")
+						.header("Authorization", "Bearer " + accessToken)
+						.content(jsonBody)
+						.contentType(MediaType.APPLICATION_JSON)
+						.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isCreated());
 		result.andExpect(jsonPath("$.id").exists());
@@ -99,11 +98,11 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/events")
-					.header("Authorization", "Bearer " + accessToken)
-					.content(jsonBody)
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON));
+				mockMvc.perform(post("/api/events")
+						.header("Authorization", "Bearer " + accessToken)
+						.content(jsonBody)
+						.contentType(MediaType.APPLICATION_JSON)
+						.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isCreated());
 		result.andExpect(jsonPath("$.id").exists());
@@ -123,11 +122,11 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/events")
-					.header("Authorization", "Bearer " + accessToken)
-					.content(jsonBody)
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON));
+				mockMvc.perform(post("/api/events")
+						.header("Authorization", "Bearer " + accessToken)
+						.content(jsonBody)
+						.contentType(MediaType.APPLICATION_JSON)
+						.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isUnprocessableEntity());
 		result.andExpect(jsonPath("$.errors[0].fieldName").value("name"));
@@ -144,11 +143,11 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/events")
-					.header("Authorization", "Bearer " + accessToken)
-					.content(jsonBody)
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON));
+				mockMvc.perform(post("/api/events")
+						.header("Authorization", "Bearer " + accessToken)
+						.content(jsonBody)
+						.contentType(MediaType.APPLICATION_JSON)
+						.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isUnprocessableEntity());
 		result.andExpect(jsonPath("$.errors[0].fieldName").value("date"));
@@ -165,11 +164,11 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/events")
-					.header("Authorization", "Bearer " + accessToken)
-					.content(jsonBody)
-					.contentType(MediaType.APPLICATION_JSON)
-					.accept(MediaType.APPLICATION_JSON));
+				mockMvc.perform(post("/api/events")
+						.header("Authorization", "Bearer " + accessToken)
+						.content(jsonBody)
+						.contentType(MediaType.APPLICATION_JSON)
+						.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(status().isUnprocessableEntity());
 		result.andExpect(jsonPath("$.errors[0].fieldName").value("cityId"));
@@ -180,8 +179,8 @@ public class EventControllerIT {
 	public void findAllShouldReturnPagedResources() throws Exception {
 		
 		ResultActions result =
-				mockMvc.perform(get("/events")
-					.contentType(MediaType.APPLICATION_JSON));
+				mockMvc.perform(get("/api/events")
+						.contentType(MediaType.APPLICATION_JSON));
 
 		result.andExpect(status().isOk());
 		result.andExpect(jsonPath("$.content").exists());
