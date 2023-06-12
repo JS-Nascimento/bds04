@@ -56,7 +56,7 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/events")
+				mockMvc.perform(post("/events")
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
 						.accept(MediaType.APPLICATION_JSON));
@@ -74,7 +74,7 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/events")
+				mockMvc.perform(post("/events")
 						.header("Authorization", "Bearer " + accessToken)
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
@@ -98,7 +98,7 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/events")
+				mockMvc.perform(post("/events")
 						.header("Authorization", "Bearer " + accessToken)
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
@@ -122,7 +122,7 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/events")
+				mockMvc.perform(post("/events")
 						.header("Authorization", "Bearer " + accessToken)
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
@@ -143,7 +143,7 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/events")
+				mockMvc.perform(post("/events")
 						.header("Authorization", "Bearer " + accessToken)
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
@@ -164,7 +164,7 @@ public class EventControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/events")
+				mockMvc.perform(post("/events")
 						.header("Authorization", "Bearer " + accessToken)
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
@@ -179,7 +179,7 @@ public class EventControllerIT {
 	public void findAllShouldReturnPagedResources() throws Exception {
 		
 		ResultActions result =
-				mockMvc.perform(get("/api/events")
+				mockMvc.perform(get("/events")
 						.contentType(MediaType.APPLICATION_JSON));
 
 		result.andExpect(status().isOk());

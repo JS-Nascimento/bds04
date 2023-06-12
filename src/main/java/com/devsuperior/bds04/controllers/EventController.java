@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.net.URI;
 
 @RestController
-@RequestMapping(value = "/api/events")
+@RequestMapping(value = "/events")
 public class EventController {
     private final EventService service;
 

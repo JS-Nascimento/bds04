@@ -25,8 +25,8 @@ import java.util.Arrays;
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     private static final String[] PUBLIC = {"/oauth/token", "/h2-console/**"};
-    private static final String[] CLIENT = {"/api/events/**"};
-    private static final String[] ADMIN = {"/api/cities/**"};
+    private static final String[] CLIENT = {"/events/**"};
+    private static final String[] ADMIN = {"/cities/**"};
     @Value("${cors.origins}")
     private String corsOrigins;
     @Autowired

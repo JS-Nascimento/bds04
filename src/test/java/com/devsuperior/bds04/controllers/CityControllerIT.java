@@ -53,7 +53,7 @@ public class CityControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/cities")
+				mockMvc.perform(post("/cities")
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
 						.accept(MediaType.APPLICATION_JSON));
@@ -70,7 +70,7 @@ public class CityControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/cities")
+				mockMvc.perform(post("/cities")
 						.header("Authorization", "Bearer " + accessToken)
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
@@ -88,7 +88,7 @@ public class CityControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/cities")
+				mockMvc.perform(post("/cities")
 						.header("Authorization", "Bearer " + accessToken)
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
@@ -108,7 +108,7 @@ public class CityControllerIT {
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
-				mockMvc.perform(post("/api/cities")
+				mockMvc.perform(post("/cities")
 						.header("Authorization", "Bearer " + accessToken)
 						.content(jsonBody)
 						.contentType(MediaType.APPLICATION_JSON)
@@ -123,7 +123,7 @@ public class CityControllerIT {
 	public void findAllShouldReturnAllResourcesSortedByName() throws Exception {
 		
 		ResultActions result =
-				mockMvc.perform(get("/api/cities")
+				mockMvc.perform(get("/cities")
 						.contentType(MediaType.APPLICATION_JSON));
 
 		result.andExpect(status().isOk());

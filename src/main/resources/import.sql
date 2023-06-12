@@ -1,10 +1,17 @@
-INSERT INTO tb_city(name) VALUES ('São Paulo');
-INSERT INTO tb_city(name) VALUES ('Brasília');
-INSERT INTO tb_city(name) VALUES ('Fortaleza');
-INSERT INTO tb_city(name) VALUES ('Salvador');
-INSERT INTO tb_city(name) VALUES ('Manaus');
-INSERT INTO tb_city(name) VALUES ('Curitiba');
-INSERT INTO tb_city(name) VALUES ('Goiânia');
+INSERT INTO tb_city(name)
+VALUES ('São Paulo');
+INSERT INTO tb_city(name)
+VALUES ('Brasília');
+INSERT INTO tb_city(name)
+VALUES ('Fortaleza');
+INSERT INTO tb_city(name)
+VALUES ('Salvador');
+INSERT INTO tb_city(name)
+VALUES ('Manaus');
+INSERT INTO tb_city(name)
+VALUES ('Curitiba');
+INSERT INTO tb_city(name)
+VALUES ('Goiânia');
 INSERT INTO tb_city(name)
 VALUES ('Belém');
 INSERT INTO tb_city(name)

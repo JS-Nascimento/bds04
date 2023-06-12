@@ -12,7 +12,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/api/cities")
+@RequestMapping(value = "/cities")
 public class CityController {
     private final CityService service;
 
