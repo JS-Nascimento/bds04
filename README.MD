@@ -1,0 +1,1 @@
+nao há erro no código, o que há é um bug da ide que formata o arquivo import.sql, impedindo o seed correto e consequentemente dando erro nos testes.
